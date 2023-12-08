@@ -1,4 +1,7 @@
 <?php get_header(); ?>
+    <pre>
+        <?php var_dump($wp_query)?>
+    </pre>
 
    <?php if(have_posts()) {?>
      <?php while(have_posts()) { ?>
