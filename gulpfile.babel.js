@@ -13,6 +13,6 @@ export const styles = () => {
      return gulp.src('src/assets/scss/bundle.scss')
      .pipe(sass().on('error', sass.logError))
      .pipe(gulpif(PRODUCTION,cleanCSS({compatibility: 'ie8'})))
-     .pipe(gulp.dest('dist/asset/css'));
+     .pipe(gulp.dest('dist/assets/css'));
 }
 //export default hello;
