@@ -1,3 +1,4 @@
+/*
 var gulp = require('gulp');
 
 gulp.task('default', defaultTask);
@@ -12,3 +13,12 @@ gulp.task('Hello',function(done){
     console.log('Hello');
     done();
 });
+*/
+
+import gulp from 'gulp';
+
+export const hello = (done) => {
+    console.log('hello');
+    done();
+}
+export default hello;
