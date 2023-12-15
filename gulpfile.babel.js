@@ -74,6 +74,9 @@ export const copy = () => {
                               }
                          }
                     ]
+               },
+               output: {
+                    filename: 'bundle.js'
                }
           }))
            .pipe(gulp.dest(paths.other.dest));
