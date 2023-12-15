@@ -10,6 +10,7 @@ import imagemin from 'gulp-imagemin';
 import del from 'del';
 import webpack from 'webpack-stream';
 import uglify from 'gulp-uglify';
+import named from 'vinyl-named';
 
 const PRODUCTION = yargs.argv.prod;
 var sass = require('gulp-sass')(require('sass'));
@@ -25,7 +26,7 @@ const paths = {
           dest: 'dist/assets/images'
      },
      scripts:{
-          src: 'src/assets/js/bundle.js',
+          src: ['src/assets/js/bundle.js', 'src/assets/js/admin.js'],
           dest: 'dist/assets/js'
      },
      other: {
@@ -66,6 +67,7 @@ export const copy = () => {
 
 export const scripts = () => {
      return gulp.src(paths.scripts.src)
+     .pipe(named())
      .pipe(webpack({
           module: {
                loaders: [
@@ -82,7 +84,8 @@ export const scripts = () => {
                ]
           },
           output: {
-               filename: 'bundle.js'
+              // filename: 'bundle.js'
+               filename: '[name].js'
           },
           devtool: !PRODUCTION ? 'inline-source-map' : false
      }))
