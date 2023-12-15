@@ -20,6 +20,10 @@ const paths = {
      images: {
           src: 'src/assets/images/**/*.{jpg,jpeg,png,svg,gif}',
           dest: 'dist/assets/images'
+     },
+     other: {
+          src: ['src/assets/**/*', '!src/assets/{images,js,scss}', '!src/assets/{images,js,scss}/**/*'],
+          dest: 'dist/assets'
      }
 }
 
@@ -41,5 +45,10 @@ export const images = () => {
 
 export const watch = () => {
      gulp.watch('src/assets/scss/**/*.scss', styles);
+}
+
+export const copy = () => {
+     return gulp.src(paths.other.src)
+           .pipe(gulp.dest(paths.other.dest));
 }
 //export default hello;
