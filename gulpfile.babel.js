@@ -49,6 +49,8 @@ export const images = () => {
 
 export const watch = () => {
      gulp.watch('src/assets/scss/**/*.scss', styles);
+     gulp.watch(paths.images.src, images);
+     gulp.watch(paths.other.src, copy);
 }
 
 export const copy = () => {
@@ -56,5 +58,6 @@ export const copy = () => {
            .pipe(gulp.dest(paths.other.dest));
 }
 
+export const dev = gulp.series(clean, gulp.parallel(styles, images, copy), watch);
 export const build = gulp.series(clean, gulp.parallel(styles, images, copy));
 //export default hello;
