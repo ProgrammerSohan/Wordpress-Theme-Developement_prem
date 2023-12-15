@@ -13,11 +13,13 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.23.3",
     "@babel/preset-env": "^7.23.5",
     "@babel/register": "^7.22.15",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.69.5",
