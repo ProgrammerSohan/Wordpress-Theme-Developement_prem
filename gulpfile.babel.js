@@ -60,4 +60,5 @@ export const copy = () => {
 
 export const dev = gulp.series(clean, gulp.parallel(styles, images, copy), watch);
 export const build = gulp.series(clean, gulp.parallel(styles, images, copy));
-//export default hello;
+
+export default dev;
