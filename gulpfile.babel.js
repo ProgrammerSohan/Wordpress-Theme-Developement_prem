@@ -55,4 +55,6 @@ export const copy = () => {
      return gulp.src(paths.other.src)
            .pipe(gulp.dest(paths.other.dest));
 }
+
+export const build = gulp.series(clean, gulp.parallel(styles, images, copy));
 //export default hello;
