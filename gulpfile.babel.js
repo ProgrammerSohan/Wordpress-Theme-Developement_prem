@@ -60,6 +60,22 @@ export const watch = () => {
 
 export const copy = () => {
      return gulp.src(paths.other.src)
+          .pipe(webpack({
+               module: {
+                    loaders: [
+                         {
+
+                              test: /\.js$/,
+                              use: {
+                                   loader: 'babel-loader',
+                                   options: {
+                                        presets: ['babel-preset-env']
+                                   }
+                              }
+                         }
+                    ]
+               }
+          }))
            .pipe(gulp.dest(paths.other.dest));
 }
 
