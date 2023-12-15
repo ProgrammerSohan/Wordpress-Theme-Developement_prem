@@ -83,7 +83,7 @@ export const scripts = () => {
           output: {
                filename: 'bundle.js'
           },
-          devtool: 'inline-source-map'
+          devtool: !PRODUCTION ? 'inline-source-map' : false
      }))
       .pipe(gulp.dest(paths.scripts.dest));
 }
