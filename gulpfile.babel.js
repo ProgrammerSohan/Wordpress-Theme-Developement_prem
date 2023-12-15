@@ -60,31 +60,30 @@ export const watch = () => {
 
 export const copy = () => {
      return gulp.src(paths.other.src)
-          .pipe(webpack({
-               module: {
-                    loaders: [
-                         {
-
-                              test: /\.js$/,
-                              use: {
-                                   loader: 'babel-loader',
-                                   options: {
-                                        presets: ['babel-preset-env']
-                                   }
-                              }
-                         }
-                    ]
-               },
-               output: {
-                    filename: 'bundle.js'
-               }
-          }))
            .pipe(gulp.dest(paths.other.dest));
 }
 
 export const scripts = () => {
      return gulp.src(paths.scripts.src)
-      .pipe(webpack())
+     .pipe(webpack({
+          module: {
+               loaders: [
+                    {
+
+                         test: /\.js$/,
+                         use: {
+                              loader: 'babel-loader',
+                              options: {
+                                   presets: ['@babel/preset-env']
+                              }
+                         }
+                    }
+               ]
+          },
+          output: {
+               filename: 'bundle.js'
+          }
+     }))
       .pipe(gulp.dest(paths.scripts.dest));
 }
 
